@@ -2,7 +2,7 @@
 
 A timeline component
 
-{{< timeline "## Your Great Title" >}}
+`{{< timeline "## Your Great Title" >}}`
 
 Title is optional.
 
