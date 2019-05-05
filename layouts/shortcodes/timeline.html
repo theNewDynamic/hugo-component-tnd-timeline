@@ -1,0 +1,61 @@
+{{ $timeline := .Site.Data.timeline.years }}
+
+<div class="timeline max-w-xl mx-auto md:p-4 lg:p-0 mt-16">
+  <h2>{{ index .Params 0 | markdownify | default "Timeliness" }}</h2>
+  <div class="md:flex grid-columns-2 grid-dense">    
+    <div class="smooth-scroll w-full md:w-1/6 text-lg">      
+      <div class="sticky text-center" style="top:90px">
+        <span class="block md:inline mb-4 text-xs text-grey-dark">Jump to</span>
+        {{ template "years" .}}
+      </div>
+    </div>
+    <div class="w-full md:w-5/6 md:text-centerTK">
+      {{ template "events" .}}
+    </div>  
+  </div>
+</div>
+
+
+{{ define "years" }}
+  {{ range $index, $timeline := sort (.Site.Data.timeline.years) ".year" "desc"  }}                  
+  {{ if modBool (.year | int ) 5 -}}
+    <a href="#year-{{ .year }}" class="md:block hover:bg-primary-color hover:text-white text-primary-color-dark no-underline px-2 py-1">
+      {{- .year -}}
+    </a>              
+    {{- end }}
+  {{ end }}
+{{ end }}
+
+{{ define "events" }}
+  {{ range $index, $timeline := sort (.Site.Data.timeline.years) ".year" "desc" }}    
+    {{ $year := .year }}        
+    <h2 id="year-{{ .year }}" class="mt-8 md:mt-0 text-primary-color-dark border-2 m-0 rounded-full h-16 w-16 mx-auto flex items-center justify-center">
+      {{- .year -}}
+    </h2>
+    
+    <div class="md:grid grid-columns-2 grid-dense">
+      {{ range $i, $events := $timeline.events }}      
+        <div class="py-8 {{ if modBool $i 2 }}md:text-right text-left md:border-r-2 pr-4 {{ else }}lg:pt-16 text-left md:pl-4{{ end }}">
+          <div class="bg-grey-lightest md:mx-2 p-4 shadow-md">
+            <div class="text-sm">
+                {{ .event | markdownify }}
+            </div>
+            {{ with .image }}
+              <img src="{{ . }}" class="h-24T my-4 shadow-md w-full"> 
+            {{ end }}
+          </div>
+        </div>
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
+
+
+
+{{/*  bg-white border p-4 rounded mb-4 
+  {{ $.Scratch.Add "i" 0 }}{{ $i := $.Scratch.Get "i" }}
+  */}}
+
+
+
+

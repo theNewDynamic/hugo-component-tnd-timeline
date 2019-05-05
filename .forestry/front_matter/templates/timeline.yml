@@ -1,0 +1,24 @@
+---
+label: timeline
+hide_body: false
+fields:
+- type: field_group_list
+  name: years
+  label: Years
+  fields:
+  - type: text
+    name: year
+    label: Year
+  - type: field_group_list
+    name: event
+    label: Events
+    fields:
+    - type: textarea
+      name: event
+      label: Event
+      config:
+        wysiwyg: true
+        schema:
+          format: markdown
+pages:
+- data/timeline.json
