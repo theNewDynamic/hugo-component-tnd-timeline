@@ -1,0 +1,25 @@
+{
+  "years": [
+    {
+      "year": 2019,
+      "events": [
+        {
+          "event": "Some Great Event",
+          "image": "/uploads/an-image-for-this-event.jpg"
+        }
+      ]
+    },
+    {
+      "year": 2018,
+      "events": [
+        {
+          "event": "Another Great Event",
+          "image": "/uploads/another-great-image.jpg"
+        },
+        {
+          "event": "Yet Another Great Event without an image"          
+        }        
+      ]
+    }
+  ]
+}

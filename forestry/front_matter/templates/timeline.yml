@@ -10,7 +10,7 @@ fields:
     name: year
     label: Year
   - type: field_group_list
-    name: event
+    name: events
     label: Events
     fields:
     - type: textarea
@@ -20,5 +20,8 @@ fields:
         wysiwyg: true
         schema:
           format: markdown
+    - type: file
+      name: image
+      label: Image
 pages:
 - data/timeline.json
